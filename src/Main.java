@@ -40,9 +40,14 @@ public class Main {
 
         System.out.println(num);
         int[] arr = {1, 2, 3, 4};
-        int k =2;
+        int k = 3;
+        int start = 0;
+        int end = arr.length-1;
         int ans = linearSearch(arr, k);
         System.out.println(ans);
+
+        int targetFound = binarySearch(arr, k, start, end);
+        System.out.println("targetFound at index: "+targetFound);
 
 
         // Leetcode 451 Sort Characters By Frequency
@@ -84,6 +89,22 @@ public class Main {
         }
 
         return k;
+    }
+    // [1, 2, 3, 4]
+    public static int binarySearch(int[] arr, int target, int start, int end){
+        while (start<=end){
+            int mid = (start+end)/2;
+            if (target==arr[mid]){
+                return mid;
+            }
+            if(target>arr[mid]){
+                start = mid+1;
+            }
+            else{
+                end = mid-1;
+            }
+        }
+        return -1;
     }
 
 
