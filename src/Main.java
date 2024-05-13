@@ -42,15 +42,15 @@ public class Main {
         int[] arr = {1, 2, 3, 4};
         int[] ceilarr = {2, 3, 5, 9, 14, 16, 18};
         int k = 12;
+        char[] letters = {'c', 'd', 'f', 'j'};
+        char target = 'e';
         int start = 0;
-        int end = arr.length-1;
+        int end = letters.length-1;
         int ans = linearSearch(arr, k);
         System.out.println(ans);
 
-        int targetFound = binarySearch(arr, k, start, end);
-        int ceilNumber = ceilingOFANumber(ceilarr, k, start, end);
-        System.out.println("targetFound at index: "+ targetFound);
-        System.out.println("Ceil of " + k + " is " + ceilNumber);
+        char greatestLetter = nextGreatestLetter(letters, target, start, end);
+        System.out.println("nextGreatestLetter after " + target + " is " + greatestLetter);
 
 
         // Leetcode 451 Sort Characters By Frequency
@@ -128,7 +128,21 @@ public class Main {
                 return ceilingOFANumber(arr, target, start, end);
             }
         }
-        return arr[end+1];
+        return arr[start];
+    }
+
+    public static char nextGreatestLetter(char[] letters, char target, int start, int end){
+        while (start<=end){
+            int mid = (start+end)/2;
+            if (target>=letters[mid]){
+                start=mid+1;
+            }
+            else{
+                end=mid-1;
+            }
+        }
+        System.out.println("start Mod with Letters array Length " + start%letters.length);
+        return letters[start%letters.length];
     }
 
 }
