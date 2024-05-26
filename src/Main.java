@@ -52,6 +52,13 @@ public class Main {
         char greatestLetter = nextGreatestLetter(letters, target, start, end);
         System.out.println("nextGreatestLetter after " + target + " is " + greatestLetter);
 
+        int[] unsortedarr = {3,30,34,5,9};
+//        bubbleSort(unsortedarr);
+//        System.out.println("bubble sorted array" + Arrays.toString(unsortedarr));
+
+        String largestNum = largestNumber(unsortedarr);
+        System.out.println("Largest Number: " + largestNum);
+
 
         // Leetcode 451 Sort Characters By Frequency
         String s = "tree";
@@ -141,8 +148,104 @@ public class Main {
                 end=mid-1;
             }
         }
-        System.out.println("start Mod with Letters array Length " + start%letters.length);
         return letters[start%letters.length];
     }
+    //  0  1  2  3  4
+    // [3, 1, 5, 4, 2]
+    //  i  j
+    public static void bubbleSort(int[] arr){
+
+        boolean swapped;
+
+        for (int i = 0; i < arr.length; i++) {
+            swapped=false;
+            for (int j = 1; j < arr.length-i; j++) {
+                if(arr[j]<arr[j-1]){
+                    int temp = arr[j];
+                    arr[j] = arr[j-1];
+                    arr[j-1] = temp;
+                    swapped=true;
+                }
+            }
+            if (!swapped){
+                break;
+            }
+        }
+    }
+
+    static void sort(int arr[]) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            int min_idx = i;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[min_idx]>arr[j])
+                    min_idx = j;
+            }
+            int temp = arr[min_idx];
+            arr[min_idx] = arr[i];
+            arr[i] = temp;
+        }
+    }
+
+    // [3, 1, 5, 4, 2]
+    static void selectionSort(int arr[]){
+        for (int i = 0; i < arr.length; i++) {
+            int last = arr.length-i-1;
+            int maxindex = getMaxIndex(arr, 0, last);
+            swap(arr, maxindex, last);
+        }
+    }
+    static void swap(int[] arr, int first, int second) {
+        int temp = arr[first];
+        arr[first] = arr[second];
+        arr[second] = temp;
+    }
+    private static int getMaxIndex(int[] arr, int start, int end) {
+
+        int max = start;
+        for (int i = start; i <= end; i++) {
+            if (arr[max]<arr[i]){
+                max = i;
+            }
+        }
+        return max;
+    }
+
+    // Given a list of non-negative integers nums, arrange them such that they form the largest number and return it.
+    // Since the result may be very large, so you need to return a string instead of an integer.
+
+    // Example 1:
+    // Input: nums = [10,2]
+    // Output: "210"
+
+    static String largestNumber(int arr[]) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            int max_idx = i;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[max_idx]<arr[j])
+                    max_idx = j;
+            }
+            int temp = arr[max_idx];
+            arr[max_idx] = arr[i];
+            arr[i] = temp;
+        }
+        StringBuilder result = new StringBuilder();
+
+        for (int num : arr) {
+            result.append(num);
+        }
+        return result.toString();
+    }
+
+
+    // Task 2
+    //Given a string s, find the length of the longest substring without repeating characters.
+
+    // Example 1:
+    //Input: s = "abcabcbb"
+
+    // Output: 3
+    //Explanation: The answer is "abc", with the length of 3.
 
 }

@@ -1,9 +1,23 @@
 
-G	java:S106"+Replace this use of System.out by a logger.(ÇüŸ‹8Š·šĞô1
-L	java:S106)"+Replace this use of System.out by a logger.(í Âõøÿÿÿÿ8“·šĞô1
-F	java:S106/"+Replace this use of System.out by a logger.(ü„ê!8”·šĞô1
-G	java:S1062"+Replace this use of System.out by a logger.(î‘ì8–·šĞô1
-G	java:S106G"+Replace this use of System.out by a logger.(º²œª8š·šĞô1
-G	java:S106H"+Replace this use of System.out by a logger.(ó…öú8š·šĞô1
+s	java:S117³"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒÕØ€ÿÿÿÿÿ8ïÌÅú1
+s	java:S117à"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İÅ‹ˆşÿÿÿÿ8ñÌÅú1
+X
+java:S1854+";Remove this useless assignment to local variable "ceilarr".(ú¼şš8…ÒÅú1
+G	java:S106"+Replace this use of System.out by a logger.(ÇüŸ‹8‹ÒÅú1
+L	java:S106)"+Replace this use of System.out by a logger.(í Âõøÿÿÿÿ8˜ÒÅú1
+I
+java:S1481+",Remove this unused "ceilarr" local variable.(ú¼şš8™ÒÅú1
+F	java:S1062"+Replace this use of System.out by a logger.(ü„ê!8›ÒÅú1
+L	java:S1065"+Replace this use of System.out by a logger.(†‚©øÿÿÿÿ8œÒÅú1
+]	java:S1258"<This block of commented-out lines of code should be removed.(”òçõşÿÿÿÿ8ÒÅú1
+L	java:S106<"+Replace this use of System.out by a logger.(¿à¹‹ûÿÿÿÿ8ÒÅú1
+G	java:S106Q"+Replace this use of System.out by a logger.(º²œª8¦ÒÅú1
+G	java:S106R"+Replace this use of System.out by a logger.(ó…öú8§ÒÅú1
+M
+java:S1197°"*Move the array designators [] to the type.(â™Ãÿúÿÿÿÿ8µÒÅú1
+M
+java:S1197¿"*Move the array designators [] to the type.(Ê·Òøÿÿÿÿ8·ÒÅú1
+M
+java:S1197İ"*Move the array designators [] to the type.(§Óª¿ùÿÿÿÿ8…ÓÅú1
 O
-java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8·šĞô1
+java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8‰ÓÅú1
