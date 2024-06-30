@@ -1,3 +1,5 @@
+package Leetcode;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -7,6 +9,9 @@ public class Main {
     public static void main(String[] args) {
 
         GenericClass gc = new GenericClass();
+        ChildClass cc = new ChildClass(15, "Mohib", 23);
+
+        System.out.println(cc.num + " " + cc.name + " " + cc.age);
 
         gc.setName("Osama");
         gc.setNum(3);
@@ -53,8 +58,8 @@ public class Main {
         System.out.println("nextGreatestLetter after " + target + " is " + greatestLetter);
 
         int[] unsortedarr = {3,30,34,5,9};
-//        bubbleSort(unsortedarr);
-//        System.out.println("bubble sorted array" + Arrays.toString(unsortedarr));
+        insertionSort(unsortedarr);
+        System.out.println("Insertion sorted array" + Arrays.toString(unsortedarr));
 
         String largestNum = largestNumber(unsortedarr);
         System.out.println("Largest Number: " + largestNum);
@@ -247,5 +252,18 @@ public class Main {
 
     // Output: 3
     //Explanation: The answer is "abc", with the length of 3.
+
+    static void insertionSort(int[] arr){
+        for (int i = 0; i <= arr.length-2; i++) {
+            for (int j = i+1; j > 0; j--) {
+                if (arr[j]<arr[j-1]){
+                    swap(arr, j, j-1);
+                }else {
+                    break;
+
+                }
+            }
+        }
+    }
 
 }
