@@ -45,7 +45,8 @@ public class LinkedList {
         size+=1;
     }
 
-    public void deleteAtLast(int val){
+
+    public void insert(int val, int index){
         if (tail==null){
             insertAtFirst(val);
             return;
@@ -54,6 +55,28 @@ public class LinkedList {
         tail.next = node;
         tail = node;
         size+=1;
+    }
+
+    public void insertPosition(int pos, int data) {
+        Node new_node = new Node(data);
+        new_node.value = data;
+        new_node.next = null;
+        if(pos < 1 || pos > size + 1)
+            System.out.println("Invalid\n");
+        else if(pos == 1){
+            new_node.next = head;
+            head = new_node;
+            size++;
+        }
+        else {
+            Node temp = head;
+            while(--pos > 1){
+                temp = temp.next;
+            }
+            new_node.next= temp.next;
+            temp = new_node;
+            size++;
+        }
     }
 
     public void display(){
@@ -70,8 +93,9 @@ public class LinkedList {
         list.insertAtFirst(3);
         list.insertAtFirst(5);
         list.insertAtFirst(2);
-
         list.insertAtLast(7);
+
+        list.insertPosition(3, 4);
 
         list.display();
     }
