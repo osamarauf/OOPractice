@@ -34,6 +34,28 @@ public class LinkedList {
         size+=1;
     }
 
+    public void deleteAtFirst(){
+        head = head.next;
+        if(head == null){
+            tail=null;
+        }
+        size--;
+    }
+
+    public void deleteAtLast(){
+
+        Node temp = head;
+        Node previous = null;
+        while (temp.next!=null){
+            previous = temp;
+            temp = temp.next;
+        }
+        if (previous != null) {
+            previous.next=null;
+        }
+        size--;
+    }
+
     public void insertAtLast(int val){
         if (tail==null){
             insertAtFirst(val);
@@ -61,20 +83,20 @@ public class LinkedList {
         Node new_node = new Node(data);
         new_node.value = data;
         new_node.next = null;
+
         if(pos < 1 || pos > size + 1)
             System.out.println("Invalid\n");
         else if(pos == 1){
             new_node.next = head;
             head = new_node;
             size++;
-        }
-        else {
+        } else {
             Node temp = head;
             while(--pos > 1){
                 temp = temp.next;
             }
             new_node.next= temp.next;
-            temp = new_node;
+            temp.next = new_node;
             size++;
         }
     }
@@ -93,9 +115,13 @@ public class LinkedList {
         list.insertAtFirst(3);
         list.insertAtFirst(5);
         list.insertAtFirst(2);
-        list.insertAtLast(7);
+//        list.insertAtLast(7);
+//
+//        list.insertPosition(3, 4);
 
-        list.insertPosition(3, 4);
+        list.display();
+
+        list.deleteAtLast();
 
         list.display();
     }
